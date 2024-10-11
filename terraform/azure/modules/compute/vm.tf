@@ -2,7 +2,7 @@ resource "azurerm_public_ip" "public-ip" {
   name                = "staticsite-vm-public-ip"
   location            = "${var.location}"
   resource_group_name = "${var.rg_name}"
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
   domain_name_label   = "${var.fqdn}"
 }
 
