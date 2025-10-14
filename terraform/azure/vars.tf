@@ -1,6 +1,6 @@
 variable "rg_name" {
     type    = string
-    default = "rg-staticsite-vm"
+    default = "rg-vm"
 }
 
 variable "location" {
@@ -20,5 +20,5 @@ variable "subnet_cidr" {
 
 variable "fqdn" {
     type    = string
-    default = "staticsite-vm-kledson"
+    default = "vmkb001"
 }
