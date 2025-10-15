@@ -1,4 +1,4 @@
-name: Terraform Multicloud
+name: Terraform Multi Provider
 
 on:
   push:
@@ -16,7 +16,7 @@ env:
 jobs:
  
   # aws:
-  #   name: Deploy on AWS
+  #   name: Terraform on AWS
   #   runs-on: ubuntu-latest
   #   steps:
   #   - uses: hashicorp/setup-terraform@v3
@@ -35,7 +35,7 @@ jobs:
   #   - run: terraform -chdir=./terraform/aws show
 
   azure:
-    name: Deploy on Azure
+    name: Terraform on Azure
     runs-on: ubuntu-latest
     steps:
     - uses: hashicorp/setup-terraform@v3
