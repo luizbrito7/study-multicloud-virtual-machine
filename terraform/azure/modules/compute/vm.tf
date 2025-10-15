@@ -60,7 +60,7 @@ resource "azurerm_virtual_machine" "vm" {
   location                         = var.location
   resource_group_name              = var.rg_name
   network_interface_ids            = [azurerm_network_interface.nic.id]
-  vm_size                          = "Standard_E2s_v3"
+  vm_size                          = var.vm_size
   delete_os_disk_on_termination    = true
   delete_data_disks_on_termination = true
   storage_image_reference {
@@ -77,8 +77,8 @@ resource "azurerm_virtual_machine" "vm" {
   }
   os_profile {
     computer_name  = "vm"
-    admin_username = "vmuser"
-    admin_password = "Password1234!"
+    admin_username = var.admin_username
+    admin_password = var.admin_password
     custom_data    = "${base64encode(data.template_file.cloud_init.rendered)}"
   }
   os_profile_linux_config {

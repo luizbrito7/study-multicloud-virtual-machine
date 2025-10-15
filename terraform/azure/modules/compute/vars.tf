@@ -5,12 +5,22 @@ variable "rg_name" {
 
 variable "location" {
     type    = string
-    default = "brazilsouth"
+    default = "eastus"
 }
 
-variable "username" {
+variable "admin_username" {
     type    = string
-    default = "azureadmin"
+    default = "vmuser"
+}
+
+variable "admin_password" {
+    type    = string
+    default = "Password1234!"
+}
+
+variable "vm_size" {
+    type    = string
+    default = "Standard_E2s_v3"
 }
 
 variable "fqdn" {
