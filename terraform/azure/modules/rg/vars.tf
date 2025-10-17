@@ -1,9 +1,9 @@
 variable "rg_name" {
-    type    = string
-    default = "rg-default"
+  type    = string
+  default = "rg-default"
 }
 
 variable "location" {
-    type    = string
-    default = "eastus"
+  type    = string
+  default = "eastus"
 }

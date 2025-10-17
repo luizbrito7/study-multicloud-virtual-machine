@@ -52,7 +52,7 @@ resource "azurerm_network_interface_security_group_association" "nic-to-nsg" {
 }
 
 data "template_file" "cloud_init" {
-    template = "${file("./modules/compute/init/cloud_init.sh")}"
+  template = file("./modules/compute/init/cloud_init.sh")
 }
 
 resource "azurerm_virtual_machine" "vm" {
@@ -79,7 +79,7 @@ resource "azurerm_virtual_machine" "vm" {
     computer_name  = "vm"
     admin_username = var.admin_username
     admin_password = var.admin_password
-    custom_data    = "${base64encode(data.template_file.cloud_init.rendered)}"
+    custom_data    = base64encode(data.template_file.cloud_init.rendered)
   }
   os_profile_linux_config {
     disable_password_authentication = false
