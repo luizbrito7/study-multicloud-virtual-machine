@@ -3,3 +3,5 @@
 ## Target architecture
 
 ![Static Site Multicloud](/images/staticsite-vm.png)
+
+
