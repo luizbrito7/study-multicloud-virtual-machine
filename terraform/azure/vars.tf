@@ -22,3 +22,4 @@ variable "fqdn" {
   type    = string
   default = "labmulticloud1710"
 }
+
