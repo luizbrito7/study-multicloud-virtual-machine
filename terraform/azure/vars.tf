@@ -20,5 +20,5 @@ variable "subnet_cidr" {
 
 variable "fqdn" {
     type    = string
-    default = "vmkb001"
+    default = "labmulticloud1710"
 }
