@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'terraform/azure/**'
 
 env:
   TERRAFORM_VERSION: 1.13.1
@@ -13,13 +15,12 @@ jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
-    env:
-      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
-      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
     steps:
+    - name: Step 00 - Authenticate with Azure
+      uses: azure/login@v2
+      with:
+        creds: '{"clientId":"${{ secrets.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ secrets.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.ARM_TENANT_ID }}"}'
     - name: Step 01 - Terraform Setup
       uses: hashicorp/setup-terraform@v3
       with:

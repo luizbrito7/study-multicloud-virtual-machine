@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'terraform/aws/**'
 
 env:
   TERRAFORM_VERSION: 1.13.1
