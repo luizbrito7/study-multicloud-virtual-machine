@@ -1,6 +1,6 @@
 variable "rg_name" {
     type    = string
-    default = "rg-vm"
+    default = "rg-multicloud-lab"
 }
 
 variable "location" {
