@@ -8,7 +8,7 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "vmtfkb001"
+    bucket         = "s3-multicloud-4535345"
     key            = "terraform.tfstate"
     region         = "us-east-1"
     use_lockfile   = true
