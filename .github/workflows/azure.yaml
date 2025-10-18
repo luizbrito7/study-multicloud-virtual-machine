@@ -30,6 +30,9 @@ jobs:
       with:
         creds: '{"clientId":"${{ secrets.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ secrets.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.ARM_TENANT_ID }}"}'
 
+    - name: Check Azure context
+      run: az account show --output table
+
     - name: Step 04 - Terraform Init
       run: terraform -chdir=./terraform/azure init
 
