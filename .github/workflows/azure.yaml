@@ -88,5 +88,7 @@ jobs:
 
     - name: Step 07 - Terraform Show
       run: terraform -chdir=./terraform/azure show
-
+    
+    - name: Step 08 - Terraform Destroy
+      run: terraform -chdir=./terraform/azure destroy -auto-approve
 
