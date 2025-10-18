@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'terraform/aws/**'
+      - '.github/workflows/aws.yaml'
 
 env:
   TERRAFORM_VERSION: 1.13.1
