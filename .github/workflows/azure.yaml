@@ -31,8 +31,17 @@ jobs:
       with:
         creds: '{"clientId":"${{ secrets.ARM_CLIENT_ID }}","clientSecret":"${{ secrets.ARM_CLIENT_SECRET }}","subscriptionId":"${{ secrets.ARM_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.ARM_TENANT_ID }}"}'
 
-    - name: Check Azure context
-      run: az account show --output table
+    - name: Step 04 - Set Terraform Environment Variables
+      run: |
+        CLIENT_ID=$(echo '${{ secrets.ARM_CLIENT_ID }}' | jq -r '.clientId')
+        CLIENT_SECRET=$(echo '${{ secrets.ARM_CLIENT_SECRET }}' | jq -r '.clientSecret')
+        TENANT_ID=$(echo '${{ secrets.ARM_TENANT_ID }}' | jq -r '.tenantId')
+        SUBSCRIPTION_ID=$(echo '${{ secrets.ARM_SUBSCRIPTION_ID }}' | jq -r '.subscriptionId')
+
+        echo "ARM_CLIENT_ID=$CLIENT_ID" >> $GITHUB_ENV
+        echo "ARM_CLIENT_SECRET=$CLIENT_SECRET" >> $GITHUB_ENV
+        echo "ARM_TENANT_ID=$TENANT_ID" >> $GITHUB_ENV
+        echo "ARM_SUBSCRIPTION_ID=$SUBSCRIPTION_ID" >> $GITHUB_ENV
 
     - name: Step 04 - Terraform Init
       run: terraform -chdir=./terraform/azure init
