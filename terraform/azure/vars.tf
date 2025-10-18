@@ -23,3 +23,4 @@ variable "fqdn" {
   default = "labmulticloud1710"
 }
 
+
