@@ -15,8 +15,11 @@ jobs:
 
   test:
     name: Test
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest]
+    
+    permissions:
+      contents: read
+      
     steps:        
     - name: Step 01 - Terraform Setup
       uses: hashicorp/setup-terraform@v3
